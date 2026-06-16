@@ -53,6 +53,7 @@ function App() {
         userId: userData._id,
       },
      withCredentials: true,
+     transports: ["polling", "websocket"],
     });
 
     socketIo?.on("newNotification",(noti)=>{
