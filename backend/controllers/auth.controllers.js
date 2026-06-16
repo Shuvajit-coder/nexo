@@ -43,7 +43,7 @@ export const signUp = async(req,res)=>{
           httpOnly:true,
           maxAge:10*365*24*60*60*1000,
           secure:true,
-          sameSite:"None"
+          sameSite:"none"
         })
         
         return res.status(201).json(user)
@@ -53,7 +53,7 @@ export const signUp = async(req,res)=>{
     //      })
 
    
-   console.log(error.response.data)
+   console.log(error)
 
     }
 }
@@ -82,7 +82,7 @@ export const signIn = async(req,res)=>{
           httpOnly:true,
           maxAge:10*365*24*60*60*1000,
           secure:true,
-          sameSite:"None"
+          sameSite:"none"
         })
         
         return res.status(200).json(user)

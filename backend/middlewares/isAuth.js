@@ -1,23 +1,59 @@
-import jwt from 'jsonwebtoken'
-const isAuth = async(req,res,next)=>{
+// import jwt from 'jsonwebtoken'
+// const isAuth = async(req,res,next)=>{
+//     try {
+//        const token = req.cookies.token
+//        if(!token){
+//         return res.status(400).json({
+//             message:"token is not found"
+//         })
+//        }
+
+//        const verifyToken = await jwt.verify(token,process.env.JWT_SECRET)
+
+//        req.userId = verifyToken.userId
+
+//        next()
+//     } catch (error) {
+//         return res.status(500).json({
+//             message:`is auth error ${error}`
+//         })
+//     }
+// }
+
+// export default isAuth
+
+import jwt from "jsonwebtoken";
+
+const isAuth = (req, res, next) => {
     try {
-       const token = req.cookies.token
-       if(!token){
-        return res.status(400).json({
-            message:"token is not found"
-        })
-       }
+        console.log("Cookies:", req.cookies);
 
-       const verifyToken = await jwt.verify(token,process.env.JWT_SECRET)
+        const token = req.cookies.token;
 
-       req.userId = verifyToken.userId
+        console.log("Token:", token);
 
-       next()
+        if (!token) {
+            return res.status(401).json({
+                message: "Token is not found"
+            });
+        }
+
+        const verifyToken = jwt.verify(
+            token,
+            process.env.JWT_SECRET
+        );
+
+        req.userId = verifyToken.userId;
+
+        next();
+
     } catch (error) {
-        return res.status(500).json({
-            message:`is auth error ${error}`
-        })
-    }
-}
+        console.log("JWT Error:", error);
 
-export default isAuth
+        return res.status(401).json({
+            message: error.message
+        });
+    }
+};
+
+export default isAuth;
