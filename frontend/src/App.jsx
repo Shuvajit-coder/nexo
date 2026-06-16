@@ -52,7 +52,7 @@ function App() {
       query: {
         userId: userData._id,
       },
-      transports: ["websocket"],
+     withCredentials: true,
     });
 
     socketIo?.on("newNotification",(noti)=>{
