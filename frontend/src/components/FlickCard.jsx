@@ -310,7 +310,7 @@ const {socket}=useSelector(state=>state.socket)
         <div className="flex  items-center gap-[5px]">
           <div className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] border-2 border-black rounded-full cursor-pointer overflow-hidden" onClick={()=>navigate(`/profile/${flick.author?.userName}`)}>
             <img
-              src={flick?.author.profileImage || dp}
+              src={flick?.author?.profileImage || dp}
               alt=""
               className="w-full object-cover"
             />
