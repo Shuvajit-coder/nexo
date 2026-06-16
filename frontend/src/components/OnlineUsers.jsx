@@ -10,23 +10,7 @@ function OnlineUsers({user}) {
   const navigate = useNavigate()
   return (
     <div className="w-[50px] h-[50px] flex gap-[20px] justify-start items-center relative">
-      {/* <div
-        className="w-[50px] h-[50px] border-2 border-black rounded-full cursor-pointer overflow-hidden"
-        onClick={() => {
-          dispatch(setSelectedUser(user))
-          navigate(`/messageArea/`)
-        }}
-      >
-        <img
-          src={user?.profileImage || dp}
-          alt=""
-          onError={(e) => {
-    console.log("Image Error:", user.profileImage);
-    e.target.src = dp;
-  }}
-          className="w-full h-full object-cover"
-        />
-      </div> */}
+      
 
 
 <div
@@ -41,11 +25,7 @@ function OnlineUsers({user}) {
     src={user?.profileImage || dp}
     alt=""
     className="w-full h-full object-cover"
-    // onLoad={() => console.log("Loaded:", user.userName)}
-    // onError={(e) => {
-    //   console.log("Image Error:", user.profileImage);
-    //   e.target.src = dp;
-    // }}
+    
   />
 </div>
 

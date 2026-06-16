@@ -13,7 +13,7 @@ function EditProfile() {
   const navigate = useNavigate();
   const imageInput = useRef();
   const [frontendImage, setFrontendImage] = useState(
-    userData.profileImage || dp,
+    userData?.profileImage || dp,
   );
   const [backendImage, setBackendImage] = useState(null);
 

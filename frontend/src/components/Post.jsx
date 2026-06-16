@@ -108,7 +108,7 @@ function Post({ post }) {
           <div className="w-[40px] h-[40px] md:w-[60px] md:h-[60px] border-2 border-black rounded-full cursor-pointer overflow-hidden">
             <img
             
-              src={post?.author.profileImage || dp}
+              src={post?.author?.profileImage || dp}
               alt=""
               className="w-full object-cover"
             />
@@ -196,7 +196,7 @@ function Post({ post }) {
           <div className="w-full h-[80px] flex items-center justify-between px-[20px] relative">
             <div className="w-[40px] h-[40px] md:w-[60px] md:h-[60px] border-2 border-black rounded-full cursor-pointer overflow-hidden">
               <img
-                src={post?.author.profileImage || dp}
+                src={post?.author?.profileImage || dp}
                 alt=""
                 className="w-full object-cover"
               />
@@ -221,7 +221,7 @@ function Post({ post }) {
               <div key={index}  className="w-full px-[20px] py-[20px] flex items-center gap-[20px] border-b-2 border-b-gray-200">
                 <div className="w-[20px] h-[20px] md:w-[60px] md:h-[60px] border-2 border-black rounded-full cursor-pointer overflow-hidden">
                   <img
-                    src={com?.author.profileImage || dp}
+                    src={com?.author?.profileImage || dp}
                     alt=""
                     className="w-full object-cover"
                   />

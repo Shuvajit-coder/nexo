@@ -224,7 +224,7 @@ const {socket}=useSelector(state=>state.socket)
              <div className="flex justify-start items-center gap-[10px] md:gap-[20px] ">
                        <div className="w-[20px] h-[20px] md:w-[40px] md:h-[40px] border-2 border-black rounded-full cursor-pointer overflow-hidden">
                          <img
-                           src={com?.author.profileImage || dp}
+                           src={com?.author?.profileImage || dp}
                            alt=""
                            className="w-full object-cover"
                          />
@@ -242,7 +242,7 @@ const {socket}=useSelector(state=>state.socket)
         <div className="w-full fixed bottom-0 h-[80px] flex items-center justify-between px-[10px] py-[10px] ">
                     <div className="w-[20px] h-[20px] md:w-[40px] md:h-[40px] border-2 border-black rounded-full cursor-pointer overflow-hidden ">
                       <img
-                        src={flick?.author.profileImage || dp}
+                        src={flick?.author?.profileImage || dp}
                         alt=""
                         className="w-full object-cover"
                       />

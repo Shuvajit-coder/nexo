@@ -38,7 +38,7 @@ function Feed() {
         {/* Your Story */}
         <StoryDp
           userName="Your Story"
-          profileImage={userData.profileImage}
+          profileImage={userData?.profileImage}
           story={currentUserStory}
         />
 

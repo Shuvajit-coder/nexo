@@ -76,7 +76,7 @@ function Search() {
               onClick={() => navigate(`/profile/${user.userName}`)}
             >
               <img
-                src={user.profileImage || dp}
+                src={user?.profileImage || dp}
                 alt={user.userName}
                 className="w-12 h-12 rounded-full object-cover border-2 border border-black"
               />
