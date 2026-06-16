@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useRef } from 'react'
 import { useSelector } from 'react-redux'
+import dp from "../assets/dp.png"
 
 function ReceiverMessage({message}) {
     const {userData}= useSelector(state=>state.user)
