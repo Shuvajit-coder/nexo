@@ -27,7 +27,7 @@ import Search from './pages/Search';
 import getAllNotifications from './hooks/getAllNotifications';
 import Notifications from './pages/Notifications';
 import { setNotificationData } from './redux/userSlice';
-export const serverUrl = "http://localhost:8000";
+export const serverUrl = "https://nexo-backend-8kew.onrender.com";
 
 function App() {
   getAllNotifications()
@@ -52,7 +52,8 @@ function App() {
       query: {
         userId: userData._id,
       },
-      transports: ["websocket"],
+     withCredentials: true,
+     transports: ["polling", "websocket"],
     });
 
     socketIo?.on("newNotification",(noti)=>{
