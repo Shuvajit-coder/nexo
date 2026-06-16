@@ -33,13 +33,13 @@ const {socket}=useSelector(state=>state.socket)
  useEffect(()=>{
    socket?.on("likedFlick",(updatedData)=>{
     const updatedFlicks = flickData.map((p) =>
-        p._id == updatedData.flickId? {...p,likes:updatedData.likes} : p,
+        p?._id == updatedData.flickId? {...p,likes:updatedData.likes} : p,
       );
       dispatch(setFlickData(updatedFlicks))
    })
    socket?.on("commentedFlick",(updatedData)=>{
     const updatedFlicks = flickData.map((p) =>
-        p._id == updatedData.flickId ? {...p,comments:updatedData.comments} : p,
+        p?._id == updatedData.flickId ? {...p,comments:updatedData.comments} : p,
       );
       dispatch(setFlickData(updatedFlicks))
    })
@@ -65,13 +65,13 @@ const {socket}=useSelector(state=>state.socket)
 
    const handleLike = async () => {
     try {
-      const result = await axios.get(`${serverUrl}/api/flick/like/${flick._id}`, {
+      const result = await axios.get(`${serverUrl}/api/flick/like/${flick?._id}`, {
         withCredentials: true,
       });
       const updatedFlick = result.data;
 
       const updatedFlicks = flickData.map((p) =>
-        p._id == flick._id ? updatedFlick : p,
+        p?._id == flick?._id ? updatedFlick : p,
       );
       dispatch(setFlickData(updatedFlicks));
     } catch (error) {
@@ -84,14 +84,14 @@ const {socket}=useSelector(state=>state.socket)
   const handleComment = async () => {
     try {
       const result = await axios.post(
-        `${serverUrl}/api/flick/comments/${flick._id}`,
+        `${serverUrl}/api/flick/comments/${flick?._id}`,
         { message },
         { withCredentials: true },
       );
       const updatedFlick = result.data;
 
       const updatedFlicks = flickData.map((p) =>
-        p._id == flick._id ? updatedFlick : p,
+        p?._id == flick?._id ? updatedFlick : p,
       );
       dispatch(setFlickData(updatedFlicks));
       setMessage("");
@@ -119,7 +119,7 @@ const {socket}=useSelector(state=>state.socket)
    
     setShowHeart(true)
     setTimeout(()=>setShowHeart(false),900)
-    {!flick.likes.includes(userData._id) ? handleLike() :null}
+    {!flick.likes.includes(userData?._id) ? handleLike() :null}
   }
 
   const handleTap = () => {
@@ -328,10 +328,10 @@ const {socket}=useSelector(state=>state.socket)
          px-[10px]">
            <div className="flex flex-col items-center cursor-pointer">
               <div onClick={handleLike}>
-                {!flick.likes.includes(userData._id) && (
+                {!flick.likes.includes(userData?._id) && (
                               <FaRegHeart className="w-[25px] h-[25px] cursor-pointer"  />
                             )}
-                            {flick.likes.includes(userData._id) && (
+                            {flick.likes.includes(userData?._id) && (
                               <FaHeart className="w-[25px] h-[25px] cursor-pointer text-[#ee0f59]" />
                             )}
               </div>

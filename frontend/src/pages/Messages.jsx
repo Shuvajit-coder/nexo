@@ -29,8 +29,8 @@ function Messages() {
 
       <div className="w-full h-[80px] flex gap-[20px] justify-start items-center overflow-x-auto p-[20px] border-b-2 border-gray-800">
         {userData.following.map((user) =>
-          onlineUsers?.includes(user._id?.toString()) ? (
-            <OnlineUsers key={user._id} user={user} />
+          onlineUsers?.includes(user?._id?.toString()) ? (
+            <OnlineUsers key={user?._id} user={user} />
           ) : null,
         )}
       </div>
@@ -44,7 +44,7 @@ function Messages() {
               navigate("/messageArea");
             }}
           >
-            {onlineUsers?.includes(user._id) ? (
+            {onlineUsers?.includes(user?._id) ? (
               <OnlineUsers user={user} />
             ) : (
               <div className="w-[50px] h-[50px] border-2 border-black rounded-full overflow-hidden">
@@ -59,7 +59,7 @@ function Messages() {
               <div className="text-white text-[18px] font-semibold">
                 {user?.userName}
               </div>
-              {onlineUsers?.includes(user._id?.toString()) && (
+              {onlineUsers?.includes(user?._id?.toString()) && (
                 <div className="text-blue-500 text-[15px]">Active Now</div>
               )}
             </div>

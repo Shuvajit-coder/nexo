@@ -46,7 +46,7 @@ function Feed() {
         {storyList &&
           storyList?.map((story) => (
             <StoryDp
-              key={story._id}
+              key={story?._id}
               userName={story?.author?.userName}
               profileImage={story?.author?.profileImage}
               story={story}
@@ -59,7 +59,7 @@ function Feed() {
 
         {postData &&
           postData.map((post) => (
-            <Post post={post} key={post._id} />
+            <Post post={post} key={post?._id} />
           ))}
       </div>
     </div>

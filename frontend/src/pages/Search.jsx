@@ -71,7 +71,7 @@ function Search() {
         {searchData?.length > 0 ? (
           searchData.map((user) => (
             <div
-              key={user._id}
+              key={user?._id}
               className="flex items-center gap-4 p-3 bg-white rounded-full cursor-pointer hover:bg-gray-300"
               onClick={() => navigate(`/profile/${user?.userName}`)}
             >

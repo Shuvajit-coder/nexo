@@ -55,7 +55,7 @@ function Profile() {
   };
 
   const isOwnProfile =
-    profileData?._id && userData?._id && profileData._id === userData._id;
+    profileData?._id && userData?._id && profileData?._id === userData?._id;
 
   return (
     <div className="w-full min-h-screen bg-black">
@@ -195,7 +195,7 @@ function Profile() {
       <div className="w-full flex justify-center mt-[30px]">
         <div className="w-full max-w-[900px] bg-white rounded-t-[30px] flex flex-col items-center pt-[30px] pb-[100px]">
           {/* TABS */}
-          {profileData?._id == userData._id && (
+          {profileData?._id == userData?._id && (
             <div className="w-[90%] max-w-[500px] h-[80px] flex justify-center items-center gap-[10px]">
               <div
                 className={`w-[28%] h-[80%] flex justify-center items-center rounded-full cursor-pointer ${
@@ -223,33 +223,33 @@ function Profile() {
 
           <Nav />
 
-          {profileData?._id == userData._id && (
+          {profileData?._id == userData?._id && (
             <>
               {" "}
               {/* USER POSTS */}
               {postType === "posts" &&
                 postData
                   .filter((post) => post.author?._id === profileData?._id)
-                  .map((post) => <Post key={post._id} post={post} />)}
+                  .map((post) => <Post key={post?._id} post={post} />)}
               {/* SAVED POSTS */}
               {postType === "saved" &&
                 postData
                   .filter((p) =>
-                    userData?.saved?.some((saved) => saved._id === p._id),
+                    userData?.saved?.some((saved) => saved?._id === p?._id),
                   )
                   .reverse()
-                  .map((post) => <Post key={post._id} post={post} />)}
+                  .map((post) => <Post key={post?._id} post={post} />)}
             </>
           )}
 
-          {profileData?._id != userData._id && (
+          {profileData?._id != userData?._id && (
             <>
               {" "}
               {/* USER POSTS */}
               {postData
                 .filter((post) => post.author?._id === profileData?._id)
                 .map((post) => (
-                  <Post key={post._id} post={post} />
+                  <Post key={post?._id} post={post} />
                 ))}
             </>
           )}

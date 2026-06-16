@@ -25,7 +25,7 @@ const storySlice=createSlice({
 
     addStory:(state,action)=>{
         const exists = state.storyList.some(
-            story => story._id === action.payload._id
+            story => story?._id === action.payload?._id
         )
 
         if(!exists){

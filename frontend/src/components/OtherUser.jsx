@@ -26,7 +26,7 @@ function OtherUser({user}) {
             </div>
           </div>
         </div>
-        <FollowButton tailwind={' px-[10px] w-[100px] py-[5px] h-[40px] bg-white rounded-2xl'} targetUserId={user._id}/>
+        <FollowButton tailwind={' px-[10px] w-[100px] py-[5px] h-[40px] bg-white rounded-2xl'} targetUserId={user?._id}/>
         
     </div>
   )

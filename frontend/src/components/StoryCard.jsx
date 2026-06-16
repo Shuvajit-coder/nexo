@@ -123,7 +123,7 @@ function StoryCard({ storyData }) {
             .slice(0, 3)
             .map((viewer, index) => (
               <div
-                key={viewer._id}
+                key={viewer?._id}
                 className={`w-[30px] h-[30px] border-2 border-black rounded-full overflow-hidden ${
                   index > 0 ? "absolute" : ""
                 }`}

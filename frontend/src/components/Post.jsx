@@ -29,13 +29,13 @@ function Post({ post }) {
   useEffect(()=>{
    socket?.on("likedPost",(updatedData)=>{
     const updatedPosts = postData.map((p) =>
-        p._id == updatedData.postId ? {...p,likes:updatedData.likes} : p,
+        p?._id == updatedData.postId ? {...p,likes:updatedData.likes} : p,
       );
       dispatch(setPostData(updatedPosts))
    })
    socket?.on("commentedPost",(updatedData)=>{
     const updatedPosts = postData.map((p) =>
-        p._id == updatedData.postId ? {...p,comments:updatedData.comments} : p,
+        p?._id == updatedData.postId ? {...p,comments:updatedData.comments} : p,
       );
       dispatch(setPostData(updatedPosts))
    })
@@ -48,19 +48,19 @@ function Post({ post }) {
   
 
   const isSaved = userData?.saved?.some(
-  (savedPost) => savedPost._id === post._id
+  (savedPost) => savedPost?._id === post?._id
 );
  
 
   const handleLike = async () => {
     try {
-      const result = await axios.get(`${serverUrl}/api/post/like/${post._id}`, {
+      const result = await axios.get(`${serverUrl}/api/post/like/${post?._id}`, {
         withCredentials: true,
       });
       const updatedPost = result.data;
 
       const updatedPosts = postData.map((p) =>
-        p._id == post._id ? updatedPost : p,
+        p?._id == post?._id ? updatedPost : p,
       );
       dispatch(setPostData(updatedPosts));
     } catch (error) {
@@ -71,14 +71,14 @@ function Post({ post }) {
   const handleComment = async () => {
     try {
       const result = await axios.post(
-        `${serverUrl}/api/post/comment/${post._id}`,
+        `${serverUrl}/api/post/comment/${post?._id}`,
         { message },
         { withCredentials: true },
       );
       const updatedPost = result.data;
 
       const updatedPosts = postData.map((p) =>
-        p._id == post._id ? updatedPost : p,
+        p?._id == post?._id ? updatedPost : p,
       );
       dispatch(setPostData(updatedPosts));
       setMessage("")
@@ -91,7 +91,7 @@ function Post({ post }) {
   const handleSave=async()=>{
     try {
       const result = await axios.get(
-        `${serverUrl}/api/post/saved/${post._id}`,
+        `${serverUrl}/api/post/saved/${post?._id}`,
         { withCredentials: true },
       );
       console.log(result.data)
@@ -121,7 +121,7 @@ function Post({ post }) {
         
 
 
-         {userData._id != post.author._id && <FollowButton tailwind={"px-[10px] w-[80px] md:w-[100px] py-[5px] h-[30px] md:h-[40px] bg-black text-white rounded-2xl text-[14px] md:text-[16px]"} targetUserId={post.author._id}/>}
+         {userData?._id != post.author?._id && <FollowButton tailwind={"px-[10px] w-[80px] md:w-[100px] py-[5px] h-[30px] md:h-[40px] bg-black text-white rounded-2xl text-[14px] md:text-[16px]"} targetUserId={post.author?._id}/>}
     
          
         
@@ -151,10 +151,10 @@ function Post({ post }) {
             className="flex justify-center items-center gap-[5px]"
           
           >
-            {!post.likes.includes(userData._id) && (
+            {!post.likes.includes(userData?._id) && (
               <FaRegHeart className="w-[25px] h-[25px] cursor-pointer" onClick={handleLike} />
             )}
-            {post.likes.includes(userData._id) && (
+            {post.likes.includes(userData?._id) && (
               <FaHeart className="w-[25px] h-[25px] cursor-pointer text-[#ee0f59]"  onClick={handleLike}/>
             )}
             <span>{post.likes.length}</span>
@@ -165,14 +165,7 @@ function Post({ post }) {
             <span>{post.comments.length}</span>
           </div>
         </div>
-        {/* <div onClick={handleSave}>
-          {!userData.saved.includes(post?._id) && (
-            <FaRegBookmark className="w-[25px] h-[25px] cursor-pointer" />
-          )}
-          {userData.saved.includes(post?._id) && (
-            <FaBookmark className="w-[25px] h-[25px] cursor-pointer" />
-          )}
-        </div> */}
+        
         <div onClick={handleSave}>
   {!isSaved && (
     <FaRegBookmark className="w-[25px] h-[25px] cursor-pointer" />

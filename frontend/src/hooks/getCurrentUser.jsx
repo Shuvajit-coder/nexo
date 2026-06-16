@@ -22,7 +22,7 @@ function getCurrentUser() {
             //dispatch(setFollowing(result.data.following))
             dispatch(
   setFollowing(
-    result.data.following.map(user => user._id)
+    result.data.following.map(user => user?._id)
   )
 )
 

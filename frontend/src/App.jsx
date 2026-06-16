@@ -50,7 +50,7 @@ function App() {
 
     const socketIo = io(serverUrl, {
       query: {
-        userId: userData._id,
+        userId: userData?._id,
       },
      withCredentials: true,
      transports: ["polling", "websocket"],

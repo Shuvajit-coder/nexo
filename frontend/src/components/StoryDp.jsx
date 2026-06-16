@@ -16,7 +16,7 @@ function StoryDp({ profileImage, userName,story }) {
   const [viewed, setViewed] = useState(false)
  const handleViewrs = async()=>{
   try {
-    const result = await axios.get(`${serverUrl}/api/story/view/${story._id}`,{withCredentials:true})
+    const result = await axios.get(`${serverUrl}/api/story/view/${story?._id}`,{withCredentials:true})
     
   } catch (error) {
     console.log(error)
@@ -28,7 +28,7 @@ function StoryDp({ profileImage, userName,story }) {
  
  useEffect(()=>{
   if(story?.viewers?.some((viewer)=>
-  viewer?._id?.toString()===userData._id.toString() || viewer?.toString()==userData._id.toString()
+  viewer?._id?.toString()===userData._id.toString() || viewer?.toString()==userData?._id.toString()
 )){
   setViewed(true)
 }else{

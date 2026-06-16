@@ -10,7 +10,7 @@ function Notifications() {
     const navigate = useNavigate()
     const {notificationData}= useSelector(state=>state.user)
     const dispatch = useDispatch()
-    const ids=notificationData.map((n)=>n._id)
+    const ids=notificationData.map((n)=>n?._id)
     const markAsRead= async()=>{
         try {
             const result = await axios.post(`${serverUrl}/api/user/markAsRead`,{notificationId:ids},{withCredentials:true})

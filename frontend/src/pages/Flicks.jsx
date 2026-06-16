@@ -19,7 +19,7 @@ function Flicks() {
             </div>
             <div className='h-[100vh] overflow-y-scroll snap-y snap-mandatory scrollbar-hide'>
                 {flickData.map((flick,index)=>(
-                    <div key={flick._id || index} className='h-screen snap-start '>
+                    <div key={flick?._id || index} className='h-screen snap-start '>
                         <FlickCard flick={flick} />
                     </div>
                     
