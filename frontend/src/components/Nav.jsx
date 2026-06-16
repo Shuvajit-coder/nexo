@@ -17,7 +17,7 @@ function Nav() {
       <div onClick={()=>navigate('/search')}><IoSearch className='text-white w-[22px] h-[22px] cursor-pointer '/></div>
       <div onClick={()=>navigate("/upload")}><FaRegSquarePlus  className='text-white w-[22px] h-[22px] cursor-pointer'/></div>
       <div onClick={()=>navigate('/flicks')} ><RxVideo  className='text-white w-[25px] h-[25px] cursor-pointer '/></div>
-      <div className="w-[40px] h-[40px] border-2 border-black rounded-full cursor-pointer overflow-hidden" onClick={()=>navigate(`/profile/${userData.userName}`)}>
+      <div className="w-[40px] h-[40px] border-2 border-black rounded-full cursor-pointer overflow-hidden" onClick={()=>navigate(`/profile/${userData?.userName}`)}>
                   <img
                     src={userData?.profileImage || dp}
                     alt=""

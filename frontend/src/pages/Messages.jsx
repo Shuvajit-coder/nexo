@@ -15,13 +15,7 @@ function Messages() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // userData?.following?.forEach((user) => {
-  //   console.log(
-  //     user.userName,
-  //     user._id,
-  //     onlineUsers.includes(user._id?.toString())
-  //   );
-  // });
+  
 
   return (
     <div className="w-full  min-h-[100vh] flex flex-col bg-black gap-[20px] p-[10px]">
@@ -63,7 +57,7 @@ function Messages() {
             )}
             <div className="flex flex-col">
               <div className="text-white text-[18px] font-semibold">
-                {user.userName}
+                {user?.userName}
               </div>
               {onlineUsers?.includes(user._id?.toString()) && (
                 <div className="text-blue-500 text-[15px]">Active Now</div>

@@ -18,7 +18,7 @@ function EditProfile() {
   const [backendImage, setBackendImage] = useState(null);
 
   const [name, setName] = useState(userData.name || "");
-  const [userName, setUserName] = useState(userData.userName || "");
+  const [userName, setUserName] = useState(userData?.userName || "");
   const [bio, setBio] = useState(userData.bio || "");
   const [profession, setProfession] = useState(userData.profession || "");
   const [gender, setGender] = useState(userData.gender || "");
@@ -46,7 +46,7 @@ function EditProfile() {
       dispatch(setProfileData(result.data));
       dispatch(setUserData(result.data));
       setLoading(false);
-      navigate(`/profile/${userData.userName}`);
+      navigate(`/profile/${userData?.userName}`);
     } catch (error) {
       setLoading(false);
       console.log(error);
@@ -63,7 +63,7 @@ function EditProfile() {
       <div className=" w-full h-[80px] flex items-center gap-[20px] px-[20px]  ">
         <IoMdArrowRoundBack
           className="w-[25px] h-[25px] text-white cursor-pointer"
-          onClick={() => navigate(`/profile/${userData.userName}`)}
+          onClick={() => navigate(`/profile/${userData?.userName}`)}
         />
         <h1 className="text-white font-semibold text-[20px]">Edit profile</h1>
       </div>

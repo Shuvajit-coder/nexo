@@ -73,17 +73,17 @@ function Search() {
             <div
               key={user._id}
               className="flex items-center gap-4 p-3 bg-white rounded-full cursor-pointer hover:bg-gray-300"
-              onClick={() => navigate(`/profile/${user.userName}`)}
+              onClick={() => navigate(`/profile/${user?.userName}`)}
             >
               <img
                 src={user?.profileImage || dp}
-                alt={user.userName}
+                alt={user?.userName}
                 className="w-12 h-12 rounded-full object-cover border-2 border border-black"
               />
 
               <div>
                 <h2 className="text-black font-semibold">
-                  {user.userName}
+                  {user?.userName}
                 </h2>
 
                 <p className="text-gray-800 text-sm">

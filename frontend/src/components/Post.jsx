@@ -114,7 +114,7 @@ function Post({ post }) {
             />
           </div>
           <div className="w-[150px] font-semibold truncate">
-            {post.author.userName}
+            {post.author?.userName}
           </div>
         </div>
         
@@ -186,7 +186,7 @@ function Post({ post }) {
 
       {post.caption && (
         <div className="w-full px-[20px] gap-[10px] flex justify-start items-center">
-          <h1>{post.author.userName}</h1>
+          <h1>{post.author?.userName}</h1>
           <div>{post.caption}</div>
         </div>
       )}

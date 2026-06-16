@@ -230,7 +230,7 @@ const {socket}=useSelector(state=>state.socket)
                          />
                        </div>
                        <div className="w-[150px] font-semibold text-white truncate">
-                         {com.author.userName}
+                         {com.author?.userName}
                        </div>
               </div>
               <div className="text-white pl-[60px]">
@@ -316,7 +316,7 @@ const {socket}=useSelector(state=>state.socket)
             />
           </div>
           <div className="w-[100px] font-semibold truncate text-white">
-            {flick.author.userName}
+            {flick.author?.userName}
           </div>
           <FollowButton targetUserId={flick.author?._id} tailwind={"px-[10px] py-[5px] text-white border-2 border-white text-[14px] rounded-2xl z-[100]"}/>
         </div>

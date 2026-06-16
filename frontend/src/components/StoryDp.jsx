@@ -45,7 +45,7 @@ function StoryDp({ profileImage, userName,story }) {
       navigate("/upload")
     }else if(story && userName=="Your Story"){
        handleViewrs()
-      navigate(`/story/${userData.userName}`)
+      navigate(`/story/${userData?.userName}`)
      
     }else{
        handleViewrs()
