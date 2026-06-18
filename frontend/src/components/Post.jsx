@@ -211,8 +211,8 @@ function Post({ post }) {
 
           <div className="w-full max-h-[300px] overflow-auto">
             {post.comments?.map((com, index) => (
-              <div key={index}  className="w-full px-[20px] py-[20px] flex items-center gap-[20px] border-b-2 border-b-gray-200">
-                <div className="w-[20px] h-[20px] md:w-[60px] md:h-[60px] border-2 border-black rounded-full cursor-pointer overflow-hidden" onClick={()=>navigate(`/profile/${com?.author?.userName}`)}>
+              <div key={index}  className="w-full px-[20px] py-[20px] flex items-center gap-[20px] border-b-2 border-b-gray-200" onClick={()=>navigate(`/profile/${com?.author?.userName}`)}>
+                <div className="w-[20px] h-[20px] md:w-[60px] md:h-[60px] border-2 border-black rounded-full cursor-pointer overflow-hidden" >
                   <img
                     src={com?.author?.profileImage || dp}
                     alt=""
