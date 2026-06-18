@@ -117,7 +117,7 @@ function Profile() {
                   className={`w-[40px] h-[40px] border-2 border-black rounded-full overflow-hidden ${
                     index > 0 ? "absolute" : ""
                   }`}
-                  style={index > 0 ? { left: `${index * 9}px` } : {}}
+                  style={index > 0 ? { left: `${index * 4}px` } : {}}
                 >
                   <img
                     src={user?.profileImage || dp}
@@ -145,7 +145,7 @@ function Profile() {
                   className={`w-[40px] h-[40px] border-2 border-black rounded-full overflow-hidden ${
                     index > 0 ? "absolute" : ""
                   }`}
-                  style={index > 0 ? { left: `${index * 9}px` } : {}}
+                  style={index > 0 ? { left: `${index * 4}px` } : {}}
                 >
                   <img
                     src={user?.profileImage || dp}
