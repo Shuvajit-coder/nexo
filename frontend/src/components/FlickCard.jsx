@@ -221,7 +221,9 @@ const {socket}=useSelector(state=>state.socket)
           {flick.comments.length==0 && <div className="text-center text-white text-[20px] font-semibold mt-[50px]">No Comments Yet </div>}
           {flick.comments.map((com,index)=>(
             <div key={index} className="w-full  flex flex-col gap-[5px] border-b-[1px] border-gray-800 justify-center pb-[10px] mt-[10px]">
-             <div className="flex justify-start items-center gap-[10px] md:gap-[20px] ">
+             <div className="flex justify-start items-center gap-[10px] md:gap-[20px] cursor-pointer "
+                     onClick={ ()=>  
+                        navigate(`/profile/${com?.author?.userName}`)} >
                        <div className="w-[20px] h-[20px] md:w-[40px] md:h-[40px] border-2 border-black rounded-full cursor-pointer overflow-hidden">
                          <img
                            src={com?.author?.profileImage || dp}
