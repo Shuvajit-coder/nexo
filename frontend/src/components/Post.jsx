@@ -219,7 +219,15 @@ function Post({ post }) {
                     className="w-full object-cover"
                   />
                 </div>
-                <div>{com.message}</div>
+                <div className="flex truncate items-start justify-center gap-[5px]">
+                    <span className="font-semibold text-[15px]">
+                            {com?.author?.userName}
+                    </span>
+
+                 <span className="text-[14px] text-gray-700 break-words">
+                   {com?.message}
+                </span>
+              </div>
               </div>
             ))}
           </div>
